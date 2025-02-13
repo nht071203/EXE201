@@ -31,3 +31,33 @@
 .cat-video-3 {
     border: solid 1px green;
 }
+
+.w-100 {
+    width: 100%;
+}
+.mt-5{
+    margin-top: 25px;
+}
+.h-60{
+    height: 57px;
+}
+
+.radius-0
+{
+    border-radius: 0px;
+}
+.btnSendEmail{
+    width: 100%;
+    background-color: green;
+    font-size: 22px;
+}
+
+#name, #subject, #message{
+    font-size: 22px;
+}
+.vc_single_image-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}

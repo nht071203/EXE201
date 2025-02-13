@@ -24,6 +24,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    
+    <link data-optimized="1" rel='stylesheet' id='contact-form-7-css'
+		href='../wp-content/litespeed/css/3fdcca549cfdfe2591863ae5bcc69c66321b.css?ver=2becc' type='text/css'
+		media='all' />
+	<link data-optimized="1" rel='stylesheet' id='woocommerce-layout-css'
+		href='../wp-content/litespeed/css/ada8f55f41ac516b59e5e7b1564a550dea3e.css?ver=e285a' type='text/css'
+		media='all' />
+	<link data-optimized="1" rel='stylesheet' id='woocommerce-smallscreen-css'
+		href='../wp-content/litespeed/css/8131ef52decb4ae995cb483a62245bd92911.css?ver=3ffba' type='text/css'
+		media='only screen and (max-width: 768px)' />
+	<link data-optimized="1" rel='stylesheet' id='woocommerce-general-css'
+		href='../wp-content/litespeed/css/6451e839c6b815a7979e993b58e02a6c5ed9.css?ver=f5868' type='text/css'
+		media='all' />
+	<style id='woocommerce-inline-inline-css' type='text/css'>
+		.woocommerce form .form-row .required {
+			visibility: visible
+		}
+	</style>
+	
+	
+	<link data-optimized="1" rel='stylesheet' id='north-responsive-css'
+		href='../wp-content/litespeed/css/06045803e942f6bd1b39565c73784dee7ab7.css?ver=46a3b' type='text/css'
+		media='all' />
+	<link data-optimized="1" rel='stylesheet' id='north-dynamic-css-css'
+		href='../wp-content/litespeed/css/a7b8a096f8c9a9c9a1b800c77bae0f928261.css?ver=e0f92' type='text/css'
+		media='all' />
+	
+	
+    
     <link rel="stylesheet" href="../css/index.css" />
 
     <link rel="icon" href="../images/logo.png" sizes="32x32" />
@@ -59,6 +88,10 @@
                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1042">
                             <a href="#works">Nhân vật</a>
                         </li>
+                        <li id="menu-item-1042"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1042">
+                            <a href="#feedback">Phản hồi</a>
+                        </li>
 
                         <li id="menu-item-1048"
                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1048">
@@ -81,7 +114,10 @@
                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1042 font-style font-bold">
                             <a href="#works">Nhân vật</a>
                         </li>
-
+                        <li id="menu-item-1042"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1042">
+                            <a href="#feedback">Phản hồi</a>
+                        </li>
                         <li id="menu-item-1935"
                             class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1935 font-style font-bold">
                             <a href="#team">Team</a>
@@ -190,13 +226,7 @@
                         </div>
                     </div>
                 </section>
-                <form id="contactForm">
-                    <input type="text" id="name" placeholder="Name" required /><br />
-                    <input type="email" id="email" placeholder="E-mail" required /><br />
-                    <input type="text" id="subject" placeholder="Subject" required /><br />
-                    <textarea id="message" placeholder="Your Message" required></textarea><br />
-                    <button type="submit">Send Email</button>
-                </form>
+
             </div>
         </div>
     </div>
@@ -233,53 +263,7 @@
             });
         });
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Ngăn load lại trang
     
-            // Lấy thông tin nhập vào
-            let name = document.getElementById("name").value;
-            let email = document.getElementById("email").value;
-            let message = document.getElementById("message").value;
-    
-            if (!name || !email || !message) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Lỗi!",
-                    text: "Vui lòng điền đầy đủ thông tin!",
-                });
-                return;
-            }
-    
-            // Gửi email qua EmailJS (hoặc phương thức của bạn)
-            emailjs.send("service_sulfral", "template_wfwoqdp", {
-                from_name: name,
-                from_email: email,
-                message: message,
-            }, "vTDmcHRgN92VMZ0yA")
-            .then((response) => {
-                Swal.fire({
-                    icon: "success",
-                    title: "Thành công!",
-                    text: "Email đã được gửi!",
-                });
-                document.getElementById("contactForm").reset(); // Xóa dữ liệu sau khi gửi
-            })
-            .catch((error) => {
-                Swal.fire({
-                    icon: "error",
-                    title: "Lỗi!",
-                    text: "Có lỗi khi gửi email, vui lòng thử lại!",
-                });
-            });
-        });
-    </script>
-    
-        
-
 </body>
 
 </html>

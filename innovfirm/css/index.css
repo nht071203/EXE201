@@ -1,0 +1,33 @@
+.font-style {
+    font-family: Calibri, Arial, sans-serif;
+}
+
+.font-bold{
+    font-weight: bold;
+}
+
+.font-size-18{
+    font-size: 18px;
+}
+
+.tiktok:hover {
+    background-color: black !important;
+}
+
+.border-card{
+    border: solid 1px rgb(249, 196, 196);
+}
+
+.cat-branding{
+    border: solid 1px red;
+}
+
+.cat-design{
+    border: solid 1px yellow;
+}
+.cat-photography{
+    border: solid 1px blue;
+}
+.cat-video-3 {
+    border: solid 1px green;
+}

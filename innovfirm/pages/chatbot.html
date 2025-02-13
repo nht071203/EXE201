@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Từ điển Nhân vật Lịch sử Việt Nam</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="chatbot.js"></script>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #f4f1e9;
+            color: #3e2723;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        .chat-container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff8e1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .chat-box {
+            height: 300px;
+            overflow-y: auto;
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #d7ccc8;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .message {
+            margin: 5px 0;
+        }
+        .input-container {
+            display: flex;
+            margin-top: 10px;
+        }
+        input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #d7ccc8;
+            border-radius: 5px;
+        }
+        button {
+            padding: 8px 15px;
+            margin-left: 5px;
+            border: none;
+            background: #795548;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #5d4037;
+        }
+        /* Nút mũi tên quay lại */
+        .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: #ff6f61;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .home-button:hover {
+            background: #e64a45;
+            transform: scale(1.1);
+        }
+        .home-button i {
+            color: white;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Nút mũi tên quay lại -->
+    <button class="home-button" onclick="goToHomePage()">
+        <i>⬅</i>
+    </button>
+
+    <div class="chat-container">
+        <h2>Từ điển Nhân vật Lịch sử Việt Nam</h2>
+        <p class="instructions">Để thao tác, hãy nhập tên sự kiện hoặc nhân vật lịch sử bạn quan tâm và hệ thống sẽ cung cấp thông tin cho bạn. Ví dụ: "Lê Lợi", "hiệp định Paris"</p>
+        <div class="chat-box" id="chat-box"></div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Nhập câu hỏi...">
+            <button onclick="sendMessage()">Gửi</button>
+        </div>
+    </div>
+    
+    <script>
+        function goToHomePage() {
+            window.location.href = "index.html"; // Thay thế bằng trang chủ thực tế của bạn
+        }
+
+        const chatBox = document.getElementById("chat-box");
+        const userInput = document.getElementById("user-input");
+
+        function sendMessage() {
+            let input = userInput.value.trim();
+            if (!input) return;
+
+            addMessage("Bạn", input);
+            userInput.value = "";
+            
+            fetchWikipediaData(input);
+        }
+
+        function addMessage(sender, message) {
+            const msgDiv = document.createElement("div");
+            msgDiv.classList.add("message");
+            msgDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+            chatBox.appendChild(msgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function fetchWikipediaData(query) {
+            const url = `https://vi.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(query)}`;
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.extract) {
+                        addMessage("Chatbot", data.extract);
+                    } else {
+                        addMessage("Chatbot", "Không tìm thấy thông tin về chủ đề này trên Wikipedia.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Lỗi gọi API Wikipedia:", error);
+                    addMessage("Chatbot", "Lỗi khi lấy dữ liệu từ Wikipedia. Vui lòng thử lại sau.");
+                });
+        }
+    </script>
+</body>
+</html>

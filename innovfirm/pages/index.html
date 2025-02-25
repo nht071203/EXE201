@@ -706,11 +706,14 @@
 						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1042"><a
 							href="#works">Nhân vật</a></li>
 					<li id="menu-item-1042"
-							class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1042"><a
+						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1042"><a
 							href="play.html">Chơi trò chơi</a></li>
-							<li id="menu-item-1042"
-							class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1042"><a
+					<li id="menu-item-1042"
+						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1042"><a
 							href="chatbot.html">Từ Điển</a></li>
+					<li id="menu-item-1048"
+						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1048"><a
+							href="#5037">Phản hồi</a></li>
 					<li id="menu-item-1048"
 						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1048"><a
 							href="#contact">Liên hệ</a></li>
@@ -738,6 +741,9 @@
 						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1042 font-style font-bold">
 						<a href="chatbot.html">Từ điển</a>
 					</li>
+					<li id="menu-item-1048"
+						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1048"><a
+							href="#5037">Phản hồi</a></li>
 					<li id="menu-item-1048"
 						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1048 font-style font-bold">
 						<a href="#contact">Liên hệ</a>
@@ -2199,56 +2205,41 @@
 										data-animation-delay="100">Contrary to popular belief, Lorem Ipsum is not
 										simply random text. It has roots in piece of classical.</h2>
 								</div>
-								<div class="contact font-primary">
+								<div class="font-primary">
 									<div class="wpcf7 no-js" id="wpcf7-f417-p706-o1" lang="en-US" dir="ltr">
 										<div class="screen-reader-response">
 											<p role="status" aria-live="polite" aria-atomic="true"></p>
 											<ul></ul>
 										</div>
-										<form id="contactForm" method="post" class="wpcf7-form init"
-											aria-label="Contact form" novalidate="novalidate" data-status="init">
-											<div class="col-xs-6 left">
-												<p><span class="wpcf7-form-control-wrap" data-name="your-name">
-														<input size="40" id="name"
-															class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required font-style font-bold"
-															aria-required="true" aria-invalid="false" placeholder="Nhập tên của bạn"
-															value="" type="text" name="your-name" /></span><br />
-													<span class="wpcf7-form-control-wrap" data-name="your-email">
-														<input size="40" id="email"
-															class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email"
-															aria-required="true" aria-invalid="false"
-															placeholder="Nhập Email của bạn" value="" type="email"
-															name="your-email" /></span><br />
-													<span class="wpcf7-form-control-wrap" data-name="your-subject">
-														<input size="40" id="subject"
-															class="wpcf7-form-control wpcf7-text" aria-invalid="false"
-															placeholder="Nhập tiêu đề Email" value="" type="text"
-															name="your-subject" /></span>
-												</p>
+										<form id="contactForm" method="post"
+											class="wpcf7-form init font-style font-bold" aria-label="Contact form"
+											novalidate="novalidate" data-status="init">
+											<div class="col-12 col-md-4 left">
+												<div>
+													<input id="name"
+														class="w-100 form-control h-60 radius-0 font-size-18"
+														placeholder="Nhập tên của bạn" />
+												</div>
+												<br>
+												<div>
+													<input id="subject"
+														class="w-100 form-control h-60 radius-0 font-size-18"
+														placeholder="Nhập tiêu đề" type="text" /></span>
+												</div>
 											</div>
-											<div class="col-xs-6 right">
-												<p><span class="wpcf7-form-control-wrap" data-name="your-message">
-														<textarea cols="40" rows="10" id="message"
-															class="wpcf7-form-control wpcf7-textarea"
-															aria-invalid="false" placeholder="Nhập phản hồi của bạn"
-															name="your-message"></textarea></span>
-												</p>
+
+											<div class="col-12 col-md-8 right">
+												<textarea rows="5" id="message"
+													class="radius-0 w-100 form-control font-size-18"
+													placeholder="Nhập phản hồi của bạn"></textarea>
 											</div>
-											<div class="col-xs-12">
-												<p><input class="wpcf7-form-control wpcf7-submit has-spinner"
-														type="submit" value="Send Email" />
-												</p>
+
+											<div class="col-xs-12 mt-5">
+												<input class="btnSendEmail btn btn-success radius-0 font-bold"
+													type="submit" value="GỬI EMAIL" />
 											</div>
 											<div class="wpcf7-response-output" aria-hidden="true"></div>
 										</form>
-
-										<!-- <form id="contactForm">
-											<input type="text" id="name" placeholder="Name" required /><br />
-											<input type="email" id="email" placeholder="E-mail" required /><br />
-											<input type="text" id="subject" placeholder="Subject" required /><br />
-											<textarea id="message" placeholder="Your Message" required></textarea><br />
-											<button type="submit">Send Email</button>
-										</form> -->
 									</div>
 								</div>
 							</div>
@@ -2305,7 +2296,7 @@
 		</section>
 	</div>
 	</div>
-	
+
 	<!-- Footer -->
 	<footer class="footer white-bg footer-centered t-center">
 		<div class="container">
@@ -2444,11 +2435,10 @@
 
 			// Lấy thông tin nhập vào
 			let name = document.getElementById("name").value;
-			let email = document.getElementById("email").value;
 			let message = document.getElementById("message").value;
 			let subject = document.getElementById("subject").value;
 
-			if (!name || !email || !message || !subject) {
+			if (!name || !message || !subject) {
 				Swal.fire({
 					icon: "error",
 					title: "Lỗi!",
@@ -2460,7 +2450,6 @@
 			// Gửi email qua EmailJS (hoặc phương thức của bạn)
 			emailjs.send("service_sulfral", "template_wfwoqdp", {
 				from_name: name,
-				from_email: email,
 				subject: subject,
 				message: message,
 			}, "vTDmcHRgN92VMZ0yA")

@@ -39,7 +39,7 @@
     margin-top: 25px;
 }
 .h-60{
-    height: 57px;
+    height: 59px;
 }
 
 .radius-0
@@ -52,9 +52,6 @@
     font-size: 22px;
 }
 
-#name, #subject, #message{
-    font-size: 22px;
-}
 .vc_single_image-img{
     display: block;
     margin-left: auto;
